@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Knockout Localization Binding Demo</title>
+</head>
+<body>
+
+<div>
+	<form>
+		<div>
+			<label for="name" data-bind="restext: 'name'"></label><br />
+			<input type="text" data-bind="value: name" />
+		</div>
+
+		<div>
+			<label data-bind="restext: 'email'"></label><br />
+			<input type="email" data-bind="value: email"/>
+		</div>
+
+		<div>
+			<label data-bind="restext: 'street'"></label><br />
+			<input type="text" data-bind="value: street"/>
+		</div>
+		<div>
+			<label data-bind="restext: 'zip'"></label><br />
+			<input type="text" data-bind="value: zip"/>
+		</div>
+
+		<div>
+			<label data-bind="restext: 'city'"></label><br />
+			<input type="text" data-bind="value: city"/>
+		</div>
+
+		<input type="submit" data-bind="resattr: { value: 'ok' }" />
+	</form>
+
+	<div data-bind="visible: name && city, reshtml: { key: 'welcome', params: { name: name, city: city } }">			
+	</div>
+</div>
+
+<script src="resources.js"></script>
+<script src="https://raw.github.com/SteveSanderson/knockout/master/build/output/knockout-latest.js"></script>
+<script src="../src/ko.localizationbinding.js"></script>
+<script>
+	var locale = 'sv';
+
+	var vm = {
+		name: ko.observable(),
+		email: ko.observable(),
+		street: ko.observable(),
+		zip: ko.observable(),
+		city: ko.observable()
+	};
+
+	ko.applyBindings(vm);
+</script>
+</body>
+</html>

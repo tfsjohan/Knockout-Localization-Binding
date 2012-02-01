@@ -31,6 +31,7 @@ The current locale must be stored in a global variable called *locale*.
 
 ## Markup
 There are localized bindings for:
+
 * restext
 * reshtml
 * resattr
